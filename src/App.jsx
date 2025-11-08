@@ -14,7 +14,7 @@ function App() {
     <Banner></Banner>
 
     {/* mainn */}
-    <div className='grid grid-cols-12 w-11/12 mx-auto border-2 mt-24 min-h-20'>
+    <div className='grid grid-cols-12 gap-4 w-11/12 mx-auto mt-24 min-h-20'>
       <Main></Main>
     </div>
     </>
