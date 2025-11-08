@@ -8,9 +8,10 @@ import Spinner from "../spinner/Spinner";
 const categoryPromiss = axios('https://openapi.programming-hero.com/api/categories');
 
 // all data
-const allDataPromiss = axios("https://openapi.programming-hero.com/api/plants");
+const allDataPromiss = fetch("https://openapi.programming-hero.com/api/plants").then(res =>  res.json());
 
 const Main = () => {
+
   const btnsHandler = (id) => {
     const categoryId = document.getElementById(`btn-${id}`)
     const btns = document.querySelectorAll('.btns')
@@ -18,7 +19,10 @@ const Main = () => {
       btn.classList.remove('active')
     });
     categoryId.classList.add('active')
+
     // categoryCards(id)
+    const dataPromiss = fetch(`https://openapi.programming-hero.com/api/category/${id}`).then(res => res.json())
+    console.log(dataPromiss)
   }
 
   // const categoryCards = id => {
@@ -28,14 +32,14 @@ const Main = () => {
   return (
     <>
       {/* all category */}
-      <div className="col-span-2 p-2">
+      <div className="col-span-12 md:col-span-2 p-2">
         <h3 className="text-xl font-semibold">Categories</h3>
         <Category categoryPromiss={categoryPromiss}
           btnsHandler={btnsHandler}></Category>
       </div>
 
       {/* all data */}
-      <div className="border-2 border-amber-200 col-span-8 grid grid-cols-3 gap-3">
+      <div className="col-span-12 md:col-span-8 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         <Suspense fallback={<Spinner></Spinner>}>
           <AllCards allDataPromiss={allDataPromiss}></AllCards>
         </Suspense>
