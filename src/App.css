@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mooli&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.moli {
+  font-family: "Mooli", sans-serif;
+}
+
+.active {
+  background-color: #15803D;
+}
